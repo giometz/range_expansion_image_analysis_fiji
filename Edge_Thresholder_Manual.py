@@ -19,7 +19,7 @@ stack.deleteLastSlice()
 channel_images = ChannelSplitter.split(image)
 image.hide()
 
-# Cycle through each image, apply CLAHE
+# Cycle through each image
 for current_image in channel_images:
 	current_image.show()
 	IJ.run("Find Edges");
