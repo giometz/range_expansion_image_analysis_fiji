@@ -21,3 +21,4 @@ git clone https://github.com/btweinstein/range_expansion_analysis_fiji.git
 
 0. Extract all images using the bioformats plugin to a folder called
 "tif"
+1. Test
