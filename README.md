@@ -1,4 +1,4 @@
-# Range Expansion Analysis in Fiji
+# Range Expansion Image Analysis in Fiji
 
 Preprocessing routines for the python based ["Range Expansion Analysis"](https://github.com/btweinstein/range-expansion-analysis) 
 program.
