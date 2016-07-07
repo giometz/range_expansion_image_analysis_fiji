@@ -11,10 +11,11 @@ from ij.process import ImageProcessor
 # Get  the last slice; assume it is always brightfield
 image = IJ.getImage()
 
+#TODO: Make this more general, depending on where brightfield is
 stack = image.getStack()
 num_slices = stack.getSize()
 for i in range(num_slices -1):
-	stack.deleteSlice(1)
+	stack.deleteLastSlice()
 image.setStack(stack)
 
 # Have the user select the circle, perhaps multiple times for error analysis purposes

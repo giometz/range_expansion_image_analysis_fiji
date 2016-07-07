@@ -11,13 +11,19 @@ from ij.process import ImageProcessor
 # Get  the last slice; assume it is always brightfield
 image = IJ.getImage()
 
+#TODO: MAKE THIS MORE GENERAL, ASSUMES BRIGHTFIELD IS FIRST
 stack = image.getStack()
-stack.deleteLastSlice()
+print stack.getSize()
+stack.deleteSlice(1)
 
 # Have the user select the circle corresponding to where they want to cutoff 
 # the homeland...but first make it easy to tell where to do it
-IJ.run('Make Composite', '')
-IJ.run('Flatten', '')
+
+image.setStack(stack)
+
+if stack.getSize() > 1:
+	IJ.run('Make Composite', '')
+	IJ.run('Flatten', '')
 
 # Have the user select the circle, perhaps multiple times for error analysis purposes
 num_repetitions  = 3
