@@ -2,6 +2,8 @@ import ij
 from ij import IJ
 from ij.io import DirectoryChooser
 
+type_to_save_as = '.tif'
+
 inputFolder = DirectoryChooser('Set input directory.').getDirectory()
 outputFolder = DirectoryChooser('Set output directory.').getDirectory()
 
@@ -10,10 +12,7 @@ import os
 
 image_list = [os.path.basename(x) for x in glob.glob(inputFolder + '*.tif')]
 
-print image_list
-
 # We *shrink* smaller images.
-
 max_scaled_width = 0
 
 for image_name in image_list:
@@ -49,7 +48,10 @@ for image_name in image_list:
 	IJ.run(cur_image, "Scale...", scaling_piece + " interpolation=Bicubic create average");
 
 	cur_image = IJ.getImage()
-	IJ.save(cur_image, outputFolder + image_name)
+
+	new_type = image_name.replace('.tif', type_to_save_as)
+	
+	IJ.save(cur_image, outputFolder + new_type)
 	cur_image.close()
 
 print 'Done!
