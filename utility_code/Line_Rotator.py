@@ -15,3 +15,4 @@ print cur_angle
 # system has inversion symmetry along the y-axis
 
 IJ.run(cur_image, "Rotate... ", "angle=" +str(cur_angle) + " grid=0 interpolation=Bicubic stack")
+IJ.open(cur_image)
