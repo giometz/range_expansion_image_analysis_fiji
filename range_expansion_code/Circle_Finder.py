@@ -19,7 +19,7 @@ for i in range(num_slices -1):
 image.setStack(stack)
 
 # Have the user select the circle, perhaps multiple times for error analysis purposes
-num_repetitions  = 3
+num_repetitions  = 1
 
 binary_list = []
 for i in range(num_repetitions):
