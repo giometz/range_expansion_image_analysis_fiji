@@ -12,7 +12,14 @@ from ij.process import ImageProcessor
 image = IJ.getImage()
 
 # May have to change the # of pixels...should be about the width of the edge
-IJ.run(image, "Standard Deviation", "block_radius_x=7 block_radius_y=7")
+IJ.run("Median...", "radius=1");
+IJ.run(image, "Sample Variance", "block_radius_x=2 block_radius_y=2")
 IJ.run(image, 'Threshold...', 'Default Dark')
 dial = WaitForUserDialog('Threshold please and remove incorrect areas.')
 dial.show()
+# Fill holes
+IJ.run("Fill Holes")
+# Remove small particles
+IJ.run("ParticleRemoverPy ", "enter=.1")
+IJ.run("Close-")
+IJ.run("Find Edges")
