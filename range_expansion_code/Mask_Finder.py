@@ -25,6 +25,10 @@ for current_image in channel_images:
 	IJ.run(current_image, 'Threshold...', 'Default Dark')
 	dial = WaitForUserDialog('Threshold please. Probably use CLAHE beforehand, \nblocksize=25, histbins=2048, slope=20, select region. ')
 	dial.show()
+	
+	dial = WaitForUserDialog('Make sure you hit apply with the thresholding...')
+	dial.show()
+		
 	IJ.resetMinAndMax()
 	current_image.hide()
 
