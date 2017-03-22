@@ -17,6 +17,7 @@ IJ.run(image, "Sample Variance", "block_radius_x=2 block_radius_y=2")
 IJ.run(image, 'Threshold...', 'Default Dark')
 dial = WaitForUserDialog('Threshold please and remove incorrect areas.')
 dial.show()
+#IJ.resetMinAndMax()
 # Fill holes
 IJ.run("Fill Holes")
 # Remove small particles

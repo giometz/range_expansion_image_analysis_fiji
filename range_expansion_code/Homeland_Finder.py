@@ -14,16 +14,17 @@ image = IJ.getImage()
 #TODO: MAKE THIS MORE GENERAL, ASSUMES BRIGHTFIELD IS FIRST
 stack = image.getStack()
 print stack.getSize()
-stack.deleteSlice(1)
+if stack.getSize() > 1: # Delete brightfield, do this based on fluorescence
+	print 'Deleting brightfield and looking at fluorescence...
+	stack.deleteSlice(1)
+	image.setStack(stack)
+	
+	IJ.run('Make Composite', '')
+	IJ.run('Flatten', '')
 
 # Have the user select the circle corresponding to where they want to cutoff 
 # the homeland...but first make it easy to tell where to do it
 
-image.setStack(stack)
-
-if stack.getSize() > 1:
-	IJ.run('Make Composite', '')
-	IJ.run('Flatten', '')
 
 # Have the user select the circle, perhaps multiple times for error analysis purposes
 num_repetitions  = 3
