@@ -13,7 +13,9 @@ image = IJ.getImage()
 #IJ.run(image, "Bandpass Filter...", "filter_large=1000 filter_small=0 suppress=None tolerance=5 autoscale saturate process");
 
 stack = image.getStack()
-stack.deleteLastSlice()
+# Remove brightfield...sometimes brightfield position changes, BLEH
+#stack.deleteLastSlice()
+stack.deleteSlice(1)
 
 # Split the channels
 channel_images = ChannelSplitter.split(image)
