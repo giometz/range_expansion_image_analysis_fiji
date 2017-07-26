@@ -15,7 +15,8 @@ image = IJ.getImage()
 stack = image.getStack()
 num_slices = stack.getSize()
 for i in range(num_slices -1):
-	stack.deleteFirstSlice()
+    stack.deleteSlice(1) # removes all the stacks except the last one (brightfield)
+#   stack.deleteLastSlice()
 image.setStack(stack)
 
 # Have the user select the circle, perhaps multiple times for error analysis purposes

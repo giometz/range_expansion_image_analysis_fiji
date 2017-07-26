@@ -18,10 +18,6 @@ for filename in os.listdir(inputFolder):
         image = BF.openImagePlus(options)[0];
         nameWithoutExt = os.path.splitext(filename)[0]
         # Export the image
-        if image.getImageStackSize() > 1:
-            IJ.run(image, 'Make Composite', '')
-            IJ.run(image, 'Flatten', '')
-
         save_path =  outputFolder +'/' + nameWithoutExt + '.ome.tif'
         IJ.run(image, "Bio-Formats Exporter", "save=" + save_path + " compression=Uncompressed");
         image.close()
