@@ -15,7 +15,7 @@ image = IJ.getImage()
 stack = image.getStack()
 num_slices = stack.getSize()
 for i in range(num_slices -1):
-	stack.deleteLastSlice()
+	stack.deleteFirstSlice()
 image.setStack(stack)
 
 # Have the user select the circle, perhaps multiple times for error analysis purposes
